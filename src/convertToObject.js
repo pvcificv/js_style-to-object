@@ -16,11 +16,11 @@ function convertToObject(sourceString) {
       continue;
     }
 
-    const [key, value] = line.split(':');
-    const trimmedKey = key.trim();
-    const trimmedValue = value.trim();
+    const index = line.indexOf(':');
+    const key = line.slice(0, index).trim();
+    const value = line.slice(index + 1).trim();
 
-    res[trimmedKey] = trimmedValue;
+    res[key] = value;
   }
 
   return res;
